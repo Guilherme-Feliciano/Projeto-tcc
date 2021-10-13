@@ -7,6 +7,7 @@ include ("connection/conexao.php");
 $sql = "SELECT * FROM tbl_login 
                  WHERE cod_ativacao=MD5('$codigoAtivacao') OR cod_ativacao='$codigoAtivacao' ";
 
+//echo $sql;
 
 $executa_sql = $mysqli->query($sql);
 
@@ -38,4 +39,3 @@ if($totalLinhas == 1){
 }
 
 ?>	
-
