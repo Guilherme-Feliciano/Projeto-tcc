@@ -3,7 +3,7 @@
 $servidor_bd = "localhost";
 $usuario_bd = "root";
 $senha_bd = "";
-$banco = "pizzaOn";
+$banco = "bd_anuncios";
 
 //função de conexao com o mysqli
 

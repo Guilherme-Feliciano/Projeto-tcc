@@ -14,7 +14,7 @@ $_SESSION['mensagemErro'] = array();
 include("connection/conexao.php");
 
 // verificar se o usuario ja existe
-$consultaUsuario = "SELECT * FROM tbl_login WHERE email='$email' ";
+$consultaUsuario = "SELECT email FROM tbl_login WHERE email='$email' ";
 $executaConsultaUsuario = $mysqli->query($consultaUsuario);
 $totalConsultaUsuario = $executaConsultaUsuario->num_rows;
 
