@@ -60,7 +60,7 @@ if(sizeof($_SESSION['mensagemErro'])>0){
    $codigoLogin = $mysqli->insert_id;
 
    // gerar o codigo de ativaca
-   $codigoAtivacao = time().$codigoLogin;
+   $codigoAtivacao=time().$codigoLogin;
 
    // atualizar o usuario com o codigo de ativacao
    $atualizaCodAtivacao = "UPDATE tbl_login SET cod_ativacao=MD5('$codigoAtivacao') 

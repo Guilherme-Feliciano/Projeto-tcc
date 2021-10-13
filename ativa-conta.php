@@ -24,8 +24,8 @@ if($totalLinhas == 1){
     
     $executaAtivacao = $mysqli->query($ativaConta);
 
-    echo "<p> Conta ativada com sucesso! </p>
-          <p> <meta http-equiv='refresh' content='1;url=login.php'> Redirecionando... </p>";
+    echo '<p> Conta ativada com sucesso! </p>
+          <p> <meta http-equiv="refresh" content="1;url=login.php"> Redirecionando... </p>';
 
 }else{
 
