@@ -1,41 +1,35 @@
-<?php
-// recebe o código de ativação pelo método GET	 	
+<?php 
+
 $codigoAtivacao = $_GET['codigoAtivacao'];
 
-include ("connection/conexao.php");
+include("connection/conexao.php");
 
-$sql = "SELECT * FROM tbl_login 
-                 WHERE cod_ativacao=MD5('$codigoAtivacao') OR cod_ativacao='$codigoAtivacao' ";
-
-//echo $sql;
+// consultar na tabela se o codigo existe
+$sql = "SELECT * FROM tbl_login WHERE cod_ativacao=MD5('$codigoAtivacao') OR cod_ativacao='$codigoAtivacao' ";
 
 $executa_sql = $mysqli->query($sql);
 
-// pega o total de linhas retornado pela consulta
+// obter o total de linhas retornado pela consulta
 $totalLinhas = $executa_sql->num_rows;
 
-// dados do select
+//dados do select
 $dadosUsuario = $executa_sql->fetch_assoc();
 
-// se linhas for igual a 1, ativamos a conta
 if($totalLinhas == 1){
 
-	//ativar a conta dando o update na tabela de login
-	$ativaConta = "UPDATE tbl_login SET 
-                                cod_ativacao='',
-                                status_login=1 
-                            WHERE cod_login='".$dadosUsuario['cod_login']."' ";
+    // ativar a conta do usuario
+    $ativaConta = "UPDATE tbl_login SET cod_ativacao='',
+                                        status_login=1
+                                    WHERE cod_login='".$dadosUsuario['cod_login']."' ";
+    
+    $executaAtivacao = $mysqli->query($ativaConta);
 
-	$executa_ativacao = $mysqli->query($ativaConta);
-
-	echo '<p>Conta ativada com sucesso, utilize a tela de login para acessar o sistema.</p>
-          
-        <meta http-equiv="refresh" content="1;url=login.php"> Redirecionando...</p> ';
+    echo "<p> Conta ativada com sucesso! </p>
+          <p> <meta http-equiv='refresh' content='1;url=login.php'> Redirecionando... </p>";
 
 }else{
 
-	echo "Código de ativação inválido!";
+    echo "Código de ativação inválido";
 
 }
-
-?>	
+?>

@@ -20,7 +20,7 @@ include("connection/conexao.php");
 // consulta para verificar se o email/senha existem na tabela de login
 $consultaLogin = "SELECT * FROM tbl_login 
                                 WHERE email='$email'
-                                AND senha = MD5('$senha')";
+                                AND senha =MD5('$senha')";
 
 
 //executar a consulta
@@ -68,7 +68,5 @@ if (sizeof($_SESSION['mensagemErroLogin']) > 0 ) {
     $_SESSION['nome'] = $dadosUsuario['nome'];
 
     header("location:admin/index.php");
-
-    //
 }
 ?>

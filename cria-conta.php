@@ -48,7 +48,7 @@ if(sizeof($_SESSION['mensagemErro'])>0){
     
    // destruir a session com as mensagens de erro e os dados do formulario
    unset($_SESSION['mensagemErro']);
-   unset($_SESSION['dadosForm']);
+   unset($_SESSION['dadosForma']);
 
    //gravar os dados do usuario
    $sqlGravaUsuario = "INSERT INTO tbl_login (nome,email,numero,senha,tipo_usuario,status_login)
