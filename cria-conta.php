@@ -54,6 +54,7 @@ if(sizeof($_SESSION['mensagemErro'])>0){
    $sqlGravaUsuario = "INSERT INTO tbl_login (nome,email,numero,senha,tipo_usuario,status_login)
                                       VALUES ('$nome','$email','$numero',MD5('$senha'),'user',0)";
    
+
    $executaGravaUsuario = $mysqli->query($sqlGravaUsuario);
 
    // obter o ultimo codigo gerado na tabela
